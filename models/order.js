@@ -482,4 +482,4 @@ const orderSchema = new schema({
 
 })
 
-module.exports = mongoose.model('orders_dump23', orderSchema)
+module.exports = mongoose.model('order', orderSchema)

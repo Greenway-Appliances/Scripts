@@ -30,6 +30,37 @@ connection.on("error", (error) => {
 connection.on("open", () => {
   console.log("MongoDB connected");
 });
+app.get('/checkOrderStatus', async (req,res)=>{
+    try{
+    let updateOrders = await Orders.find().limit(10)
+    console.log(Orders);
+    console.log(updateOrders);
+    return res.send({
+        message:"ok",
+        data:updateOrders
+    })
+    }catch(error){
+        res.send({
+          message:"catch error",
+          error:error.message
+        })
+      }
+})
+app.get('/updateOrderStatus', async (req,res)=>{
+    try{
+    let updateOrders = await Orders.updateMany({batchNo:"GGIPLBA0006446"},{$set:{orderStatus:"Payment Confirmed"}})
+    console.log(updateOrders);
+    return res.send({
+        message:"ok",
+        data:updateOrders
+    })
+    }catch(error){
+        res.send({
+          message:"catch error",
+          error:error.message
+        })
+      }
+})
 app.get('/collectionTest', async (req,res)=>{
   let orders = await Leads.find({ memberId: { $regex: /^0/ }})
   console.log(orders);
