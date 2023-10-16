@@ -75,4 +75,4 @@ const customerSchema = new schema({
 //     return !orderCount
 // }, 'Duplicate')
 
-module.exports = mongoose.model('customers_dump23', customerSchema)
+module.exports = mongoose.model('customers', customerSchema)

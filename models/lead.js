@@ -253,4 +253,4 @@ const leadSchema = new schema({
 
 });
 
-module.exports = mongoose.model('lead_dump23', leadSchema)
+module.exports = mongoose.model('leads', leadSchema)
